@@ -1,10 +1,9 @@
 <template>
-    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-        <el-radio-button :label="false">展开</el-radio-button>
-        <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group> -->
-    <el-menu default-active="/" router class="el-menu-vertical-demo" background-color="#112f50" text-color="#fff"
-        active-text-color="#ffd04b">
+    <el-menu :default-active="$route.path" router class="el-menu-vertical-demo" background-color="#112f50" text-color="#fff"
+        active-text-color="#ffd04b" :collapse="isCollapse">
+        <el-menu-item>
+            <span slot="title">生鲜采购系统</span>
+        </el-menu-item>
         <el-menu-item index="/">
             <i class="el-icon-menu"></i>
             <span slot="title">系统首页</span>
@@ -55,7 +54,7 @@
 
 <script>
 export default {
-
+    props: ['isCollapse']
 }
 </script>
 
@@ -63,5 +62,9 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
+}
+
+.el-menu {
+    border-right: none;
 }
 </style>
